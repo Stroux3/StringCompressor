@@ -4,14 +4,17 @@ class Program
 {
     static void Main()
     {
-        var compressor = new Compressor();
+        Compressor compressor = new ();
 
         string input = "aaabbcccdde";
         string compressed = compressor.Compress(input);
-        string decompressed = compressor.DecompressManual(compressed);
+        string decompressedManual = compressor.DecompressManual(compressed);
+        string decompressedWithRegex = compressor.DecompressWithRegex(compressed);
 
-        Console.WriteLine($"Input:        {input}");
-        Console.WriteLine($"Compressed:   {compressed}");
-        Console.WriteLine($"Decompressed: {decompressed}");
+
+        Console.WriteLine($"Input: {input}");
+        Console.WriteLine($"Compressed: {compressed}");
+        Console.WriteLine($"DecompressedManual: {decompressedManual}");
+        Console.WriteLine($"DecompressedWithRegex: {decompressedWithRegex}");
     }
 }
