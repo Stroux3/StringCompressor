@@ -6,6 +6,10 @@ namespace StringCompressor.Core.Services
 {
     internal class Compressor : ICompressor, IDecompressor
     {
+        #region Компрессия
+        /// <summary>
+        /// Сжимает строку, заменяя последовательности одинаковых букв вида "aaa" на "a3"
+        /// </summary>
         public string Compress(string input)
         {
             if (string.IsNullOrEmpty(input))
@@ -30,7 +34,12 @@ namespace StringCompressor.Core.Services
 
             return result.ToString();
         }
+        #endregion
 
+        #region Декомпрессия
+        /// <summary>
+        /// Восстанавливает строку из сжатой формы вида "a3b2" в вид "aaabb" с помощью Regex
+        /// </summary>
         public string DecompressWithRegex(string input)
         {
             if (string.IsNullOrEmpty(input)) return string.Empty;
@@ -45,6 +54,10 @@ namespace StringCompressor.Core.Services
             }
             return result.ToString();
         }
+
+        /// <summary>
+        /// Восстанавливает строку из сжатой формы вида "a3b2" в вид "aaabb" с помощью Regex
+        /// </summary>
         public string DecompressManual(string input) 
         {
             if (string.IsNullOrEmpty(input))
@@ -71,8 +84,9 @@ namespace StringCompressor.Core.Services
 
             return sb.ToString();
         }
-    }  
-        
+        #endregion
+    }
+
 }
     
 
