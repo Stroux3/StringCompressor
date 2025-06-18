@@ -2,6 +2,7 @@
 {
     public interface IDecompressor
     {
-        public string Decompress(string input);
+        public string DecompressWithRegex(string input);
+        public string DecompressManual(string input);
     }
 }
