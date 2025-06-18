@@ -63,7 +63,7 @@ namespace StringCompressor.Core.Services
             if (string.IsNullOrEmpty(input))
                 return string.Empty;
 
-            var sb = new StringBuilder();
+            var result = new StringBuilder();
             int i = 0;
 
             while (i < input.Length)
@@ -79,10 +79,10 @@ namespace StringCompressor.Core.Services
 
                 if (count == 0) count = 1;
 
-                sb.Append(new string(currentChar, count));
+                result.Append(new string(currentChar, count));
             }
 
-            return sb.ToString();
+            return result.ToString();
         }
         #endregion
     }
