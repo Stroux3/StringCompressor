@@ -45,7 +45,34 @@ namespace StringCompressor.Core.Services
             }
             return result.ToString();
         }
+        public string DecompressManual(string input) 
+        {
+            if (string.IsNullOrEmpty(input))
+                return string.Empty;
 
-    }
-    
+            var sb = new StringBuilder();
+            int i = 0;
+
+            while (i < input.Length)
+            {
+                char currentChar = input[i];
+                i++;
+                int count = 0;
+                while (i < input.Length && char.IsDigit(input[i]))
+                {
+                    count = count * 10 + (input[i] - '0');
+                    i++;
+                }
+
+                if (count == 0) count = 1;
+
+                sb.Append(new string(currentChar, count));
+            }
+
+            return sb.ToString();
+        }
+    }  
+        
 }
+    
+
